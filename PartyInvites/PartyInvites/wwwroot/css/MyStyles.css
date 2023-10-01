@@ -1,0 +1,11 @@
+﻿.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.index-image {
+  width: 75%;
+  padding: 10px;
+}
