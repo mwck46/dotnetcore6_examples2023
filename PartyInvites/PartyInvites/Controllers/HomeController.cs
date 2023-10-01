@@ -18,10 +18,24 @@ namespace PartyInvites.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Rsvp()
         {
             return View();
         }
+
+        [HttpPost]
+        public ViewResult Rsvp(GuestResponse guestResponse)
+        {
+            Repository.AddResponse(guestResponse);
+            return View("Thanks", guestResponse);
+        }
+
+        public ViewResult GetAllAttendees()
+        {
+            return View(Repository.Responses.Where(r => r.WillAttend == true));
+        }
+
         public IActionResult Contacts()
         {
             return View();
