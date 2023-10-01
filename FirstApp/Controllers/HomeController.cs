@@ -17,12 +17,12 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult Home()
+    public IActionResult MyView()
     {
         int hour = DateTime.Now.Hour;
         string strHour = hour < 12 ? "Good Morning" : "Good Afternoon";
         string viewModel = $"{strHour}. It is { DateTime.Now.ToString()}";
-        return View("Home", viewModel);
+        return View("MyView", viewModel);
     }
 
     public IActionResult Privacy()
