@@ -2,7 +2,9 @@
 @{
     ViewData["Title"] = "Thanks";
 }
-<div>
+
+
+<div class="text-center">
     <h1>Thank you, @Model?.Name!</h1>
     @if (Model?.WillAttend == true)
     {
@@ -12,5 +14,9 @@
     {
         @:Sorry to hear that you can't make it, but thanks for letting us know.
     }
+
+    <div>
+        Click <a asp-controller="Home" asp-action="GetAllAttendees">here</a> to see who is coming.
+    </div>
+
 </div>
-Click <a asp-controller="Home" asp-action="GetAllAttendees">here</a> to see who is coming.
