@@ -3,6 +3,7 @@
     ViewData["Title"] = "RSVP";
 }
 <form asp-action="Rsvp" method="post">
+    <div asp-validation-summary="All"></div>
     <div>
         <label asp-for="Name">Your name:</label>
         <input asp-for="Name" />
