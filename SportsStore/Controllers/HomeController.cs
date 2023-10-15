@@ -8,6 +8,7 @@ namespace SportsStore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IStoreRepository _repository;
+        public int PageSize = 4;
 
         public HomeController(ILogger<HomeController> logger, IStoreRepository repository)
         {
@@ -15,9 +16,14 @@ namespace SportsStore.Controllers
             this._repository = repository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int productPage = 1)
         {
-            return View(_repository.Products);
+            return View(
+                _repository.Products
+                .OrderBy(p=>p.ProductID)
+                .Skip((productPage-1)*PageSize)
+                .Take(PageSize)
+                );
         }
 
         public IActionResult Privacy()
